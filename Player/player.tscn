@@ -1,24 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://j6rr43ltwdd"]
+[gd_scene load_steps=5 format=3 uid="uid://j6rr43ltwdd"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
+[ext_resource type="Texture2D" uid="uid://gtb52m6phril" path="res://Player/otter.png" id="2_qj2ip"]
 [ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_231b8"]
+radius = 28.0
+height = 128.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 2
+motion_mode = 1
+platform_floor_layers = 4294967040
 script = ExtResource("1_fr5kr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlayerColission" type="CollisionShape2D" parent="."]
+position = Vector2(0, -48)
+shape = SubResource("CapsuleShape2D_231b8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -30.0
-offset_right = 20.0
-offset_bottom = 10.0
-pivot_offset = Vector2(20, 30)
-color = Color(0.815686, 0, 0, 1)
+position = Vector2(12, -64)
+texture = ExtResource("2_qj2ip")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_tdi36")]
 visible = false

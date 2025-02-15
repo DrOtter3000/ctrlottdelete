@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://6x1a8q27db8p"]
+
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_gwmli"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+platform_floor_layers = 4294967040
+script = ExtResource("1_gwmli")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+
+[node name="MaxRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaxRange"]
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="MaxRange" to="." method="_on_max_range_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
