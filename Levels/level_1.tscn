@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://br5iiks6kjm3i"]
+
+[node name="Level_1" type="Node2D"]
+
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
