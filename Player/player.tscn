@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://j6rr43ltwdd"]
+[gd_scene load_steps=3 format=3 uid="uid://j6rr43ltwdd"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
+[ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fr5kr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PlayerColission" type="CollisionShape2D" parent="."]
 
@@ -15,3 +18,7 @@ offset_top = -30.0
 offset_right = 20.0
 offset_bottom = 10.0
 pivot_offset = Vector2(20, 30)
+color = Color(0.815686, 0, 0, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_tdi36")]
+visible = false
