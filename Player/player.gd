@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var pause_menu: Control = $PauseMenu
 
 const SPEED = 300.0
@@ -19,5 +20,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
-
+	
+	if direction.x < 0:
+		sprite_2d.flip_h = true
+	if direction.x > 0:
+		sprite_2d.flip_h = false
+	
 	move_and_slide()

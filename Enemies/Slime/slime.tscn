@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci1qsvtsxlli0"]
+[gd_scene load_steps=8 format=3 uid="uid://ci1qsvtsxlli0"]
 
 [ext_resource type="PackedScene" uid="uid://6x1a8q27db8p" path="res://Enemies/enemy.tscn" id="1_wy4gt"]
 [ext_resource type="Texture2D" uid="uid://cno6iskje023b" path="res://Enemies/Slime/slime.png" id="2_6or85"]
@@ -12,6 +12,14 @@ radius = 65.192
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bkhfp"]
 radius = 83.006
+
+[sub_resource type="Animation" id="Animation_rkgca"]
+resource_name = "attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yuk0a"]
+_data = {
+"attack": SubResource("Animation_rkgca")
+}
 
 [node name="Slime" instance=ExtResource("1_wy4gt")]
 
@@ -33,3 +41,8 @@ shape = SubResource("CircleShape2D_peou6")
 [node name="CollisionShape2D" parent="MaxRange" index="0"]
 position = Vector2(0, -32)
 shape = SubResource("CircleShape2D_bkhfp")
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_yuk0a")
+}
