@@ -9,7 +9,6 @@ extends CharacterBody2D
 @export var hitpoints := 5.0
 @export var speed := 200
 @export var attack_rate := .5
-@export var melee := true
 
 var player
 var player_attackable := false
@@ -22,9 +21,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("Player") as CharacterBody2D
-	
-	if melee:
+
+	if !player_attackable:
 		velocity = position.direction_to(player.position) * speed
+	else:
+		velocity = Vector2.ZERO
 	
 	set_sprite_direction()
 	
@@ -37,11 +38,13 @@ func _on_attack_timer_timeout() -> void:
 
 func _on_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player_attackable = true
 		attack_timer.start()
 
 
 func _on_max_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player_attackable = false
 		attack_timer.stop()
 		attack_timer.wait_time = attack_rate
 

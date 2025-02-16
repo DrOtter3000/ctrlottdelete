@@ -12,6 +12,7 @@ script = ExtResource("1_gwmli")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 

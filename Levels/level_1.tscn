@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://ci1qsvtsxlli0" path="res://Enemies/Slime/slime.tscn" id="4_a4mno"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q5fal"]
-vertices = PackedVector2Array(2439.87, -611.023, 3093.78, -325.547, 3025.14, 1767.61, 2715.95, 2066, -869.82, 2070.99, -1242.93, 1692.96, -1211.08, -348.633, -774.977, -642.961)
+vertices = PackedVector2Array(2435.16, -589.062, 3071.3, -311.352, 3003.44, 1757.97, 2707.05, 2044.01, -860.633, 2048.98, -1220.79, 1684.07, -1189.26, -336.82, -768.359, -620.898)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(2442, -621, -778, -653, -1221, -354, -1253, 1697, -874, 2081, 2720, 2076, 3035, 1772, 3104, -332)])
+agent_radius = 32.0
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_8r4jo")
@@ -30,8 +31,3 @@ position = Vector2(30, -76)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Slime" parent="Enemies" instance=ExtResource("4_a4mno")]
-position = Vector2(961, 1218)
-collision_layer = 1
-collision_mask = 1
-motion_mode = 0
-platform_floor_layers = 4294967295
