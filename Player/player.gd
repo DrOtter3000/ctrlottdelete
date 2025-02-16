@@ -20,9 +20,11 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
 	
-	if direction.x < 0:
-		sprite_2d.flip_h = true
-	if direction.x > 0:
+	var mouse_position = get_global_mouse_position()
+	print(mouse_position)
+	if mouse_position.x > position.x:
 		sprite_2d.flip_h = false
+	if mouse_position.x < position.x:
+		sprite_2d.flip_h = true
 	
 	move_and_slide()
