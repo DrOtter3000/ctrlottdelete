@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nse2"]
-radius = 25.0
+radius = 8.0
 height = 134.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -22,8 +22,9 @@ position = Vector2(0, -54)
 shape = SubResource("CapsuleShape2D_0nse2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(12, -64)
+position = Vector2(7, -64)
 texture = ExtResource("2_qj2ip")
+offset = Vector2(-6, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_tdi36")]
 visible = false
