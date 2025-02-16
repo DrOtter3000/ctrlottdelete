@@ -29,6 +29,9 @@ func _physics_process(delta: float) -> void:
 	
 	set_sprite_direction()
 	
+	if velocity != Vector2.ZERO:
+		animation_player.play("walk")
+	
 	move_and_slide()
 
 
