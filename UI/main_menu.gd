@@ -2,6 +2,7 @@ extends Control
 
 @onready var box_main: VBoxContainer = $BoxMain
 @onready var box_options: VBoxContainer = $BoxOptions
+@onready var box_credits: HBoxContainer = $BoxCredits
 
 
 func _ready() -> void:
@@ -31,3 +32,13 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_btn_credits_pressed() -> void:
+	box_credits.visible = true
+	box_main.visible = false
+
+
+func _on_button_pressed() -> void:
+	box_main.visible = true
+	box_credits.visible = false
