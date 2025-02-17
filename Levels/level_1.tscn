@@ -1,33 +1,190 @@
-[gd_scene load_steps=6 format=3 uid="uid://br5iiks6kjm3i"]
+[gd_scene load_steps=8 format=3 uid="uid://br5iiks6kjm3i"]
 
 [ext_resource type="PackedScene" uid="uid://j6rr43ltwdd" path="res://Player/player.tscn" id="1_06dtt"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8r4jo"]
-[ext_resource type="Texture2D" uid="uid://c3b4ck2lggy2n" path="res://icon.svg" id="3_bxp7x"]
+[ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="2_isvtt"]
 [ext_resource type="PackedScene" uid="uid://ci1qsvtsxlli0" path="res://Enemies/Slime/slime.tscn" id="4_a4mno"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_q5fal"]
-vertices = PackedVector2Array(2435.16, -589.062, 3071.3, -311.352, 3003.44, 1757.97, 2707.05, 2044.01, -860.633, 2048.98, -1220.79, 1684.07, -1189.26, -336.82, -768.359, -620.898)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(2442, -621, -778, -653, -1221, -354, -1253, 1697, -874, 2081, 2720, 2076, 3035, 1772, 3104, -332)])
-agent_radius = 32.0
+[ext_resource type="PackedScene" uid="uid://bf3s4btsw3tff" path="res://Levels/SideWalls/wall_left_base.tscn" id="4_q0wph"]
+[ext_resource type="PackedScene" uid="uid://cp1c2yhbsto1" path="res://Levels/Walls/wall_base.tscn" id="4_yoyeb"]
+[ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="5_gjngs"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_8r4jo")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_q5fal")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(919.5, 705.5)
-scale = Vector2(34.2734, 21.1328)
-texture = ExtResource("3_bxp7x")
+[node name="Ground" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(4800, 2700)
+offset_left = -1800.0
+offset_top = -600.0
+offset_right = 3000.0
+offset_bottom = 2100.0
+texture = ExtResource("2_isvtt")
 
 [node name="PlayerStartPosition" type="Marker2D" parent="." groups=["PlayerStartPosition"]]
 position = Vector2(973, 1622)
 
-[node name="Player" parent="." instance=ExtResource("1_06dtt")]
-position = Vector2(30, -76)
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="TopWalls" type="Node2D" parent="Walls"]
+
+[node name="WallBase" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-750, -750)
+
+[node name="WallBase2" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-450, -750)
+
+[node name="WallBase3" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-150, -750)
+
+[node name="WallBase4" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(150, -750)
+
+[node name="WallBase5" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(450, -750)
+
+[node name="WallBase6" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(750, -750)
+
+[node name="WallBase7" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1050, -750)
+
+[node name="WallBase8" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1350, -750)
+
+[node name="WallBase9" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1650, -750)
+
+[node name="WallBase10" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1950, -750)
+
+[node name="WallBase11" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(2250, -750)
+
+[node name="WallBase12" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(2550, -750)
+
+[node name="WallBase23" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-1350, -750)
+
+[node name="WallBase24" parent="Walls/TopWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-1050, -750)
+
+[node name="CornerLeftBase" parent="Walls/TopWalls" instance=ExtResource("5_gjngs")]
+position = Vector2(-1648, -750)
+
+[node name="CornerLeftBase2" parent="Walls/TopWalls" instance=ExtResource("5_gjngs")]
+position = Vector2(2849, -749)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="BottomWalls" type="Node2D" parent="Walls"]
+position = Vector2(0, 2700)
+
+[node name="WallBase" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-750, -750)
+
+[node name="WallBase2" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-450, -750)
+
+[node name="WallBase3" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-150, -750)
+
+[node name="WallBase4" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(150, -750)
+
+[node name="WallBase5" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(450, -750)
+
+[node name="WallBase6" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(750, -750)
+
+[node name="WallBase7" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1050, -750)
+
+[node name="WallBase8" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1350, -750)
+
+[node name="WallBase9" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1650, -750)
+
+[node name="WallBase10" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(1950, -750)
+
+[node name="WallBase11" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(2250, -750)
+
+[node name="WallBase12" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(2550, -750)
+
+[node name="WallBase13" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(2850, -750)
+
+[node name="WallBase23" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-1350, -750)
+
+[node name="WallBase25" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-1650, -750)
+
+[node name="WallBase24" parent="Walls/BottomWalls" instance=ExtResource("4_yoyeb")]
+position = Vector2(-1050, -750)
+
+[node name="LeftWalls" type="Node2D" parent="Walls"]
+
+[node name="WallLeftBase" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, -600)
+
+[node name="WallLeftBase2" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, -300)
+
+[node name="WallLeftBase3" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 0)
+
+[node name="WallLeftBase4" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 300)
+
+[node name="WallLeftBase5" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 600)
+
+[node name="WallLeftBase6" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 900)
+
+[node name="WallLeftBase7" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 1200)
+
+[node name="WallLeftBase8" parent="Walls/LeftWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 1500)
+
+[node name="RightWalls" type="Node2D" parent="Walls"]
+position = Vector2(1200, 0)
+scale = Vector2(-1, 1)
+
+[node name="WallLeftBase" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, -600)
+
+[node name="WallLeftBase2" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, -300)
+
+[node name="WallLeftBase3" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 0)
+
+[node name="WallLeftBase4" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 300)
+
+[node name="WallLeftBase5" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 600)
+
+[node name="WallLeftBase6" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 900)
+
+[node name="WallLeftBase7" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 1200)
+
+[node name="WallLeftBase8" parent="Walls/RightWalls" instance=ExtResource("4_q0wph")]
+position = Vector2(-1800, 1500)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Slime" parent="Enemies" instance=ExtResource("4_a4mno")]
+position = Vector2(-178, -200)
+
+[node name="Player" parent="." instance=ExtResource("1_06dtt")]
+position = Vector2(30, -76)
