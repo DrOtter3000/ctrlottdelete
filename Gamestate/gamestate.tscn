@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgt5cyw76hj3o"]
+[gd_scene load_steps=3 format=3 uid="uid://cgt5cyw76hj3o"]
 
 [ext_resource type="Script" path="res://Gamestate/gamestate.gd" id="1_afvh7"]
+[ext_resource type="AudioStream" uid="uid://dcc3e385eefxu" path="res://Audio/SFX/UI/click_004.ogg" id="2_kenso"]
 
 [node name="Gamestate" type="Node"]
 script = ExtResource("1_afvh7")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kenso")

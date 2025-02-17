@@ -1,11 +1,7 @@
 extends Node
 
+@onready var button_sound: AudioStreamPlayer = $ButtonSound
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func play_button_sound() -> void:
+	button_sound.pitch_scale = randf_range(.8, 1.2)
+	button_sound.play()

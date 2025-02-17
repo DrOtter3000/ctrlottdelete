@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var speed := 250
 
 
-
 func _ready() -> void:
 	position = get_tree().get_first_node_in_group("PlayerStartPosition").global_position
 
