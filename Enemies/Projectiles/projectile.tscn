@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci6ohnkcmi8cf"]
+
+[ext_resource type="Script" path="res://Enemies/Projectiles/projectile.gd" id="1_355bl"]
+[ext_resource type="Texture2D" uid="uid://6v2ekljv3sfx" path="res://Enemies/Projectiles/Projektil.png" id="2_4lx6a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfd2o"]
+radius = 18.2483
+
+[sub_resource type="Animation" id="Animation_xbgkf"]
+resource_name = "explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(5, 5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_17nln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_faefq"]
+_data = {
+"RESET": SubResource("Animation_17nln"),
+"explode": SubResource("Animation_xbgkf")
+}
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_355bl")
+speed = 250
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hfd2o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 4)
+texture = ExtResource("2_4lx6a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_faefq")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
