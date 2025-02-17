@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://br5iiks6kjm3i"]
+[gd_scene load_steps=9 format=3 uid="uid://br5iiks6kjm3i"]
 
 [ext_resource type="PackedScene" uid="uid://j6rr43ltwdd" path="res://Player/player.tscn" id="1_06dtt"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_8r4jo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1c2yhbsto1" path="res://Levels/Walls/wall_base.tscn" id="4_yoyeb"]
 [ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="5_gjngs"]
 [ext_resource type="PackedScene" uid="uid://bgtl76tcow4mf" path="res://Enemies/PaintElemental/paint_elemental.tscn" id="6_x8p0x"]
+[ext_resource type="PackedScene" uid="uid://cwiyh5qtpd6va" path="res://Enemies/PermanentMarker/permanent_marker.tscn" id="7_ukp7p"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_8r4jo")
@@ -184,6 +185,9 @@ position = Vector2(-1800, 1500)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Paint Elemental" parent="Enemies" instance=ExtResource("6_x8p0x")]
+
+[node name="PermanentMarker" parent="Enemies" instance=ExtResource("7_ukp7p")]
+position = Vector2(2250, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_06dtt")]
 position = Vector2(30, -76)

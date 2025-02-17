@@ -3,6 +3,7 @@ extends Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var speed := 10
+@export var damage := 1
 
 var player
 var direction = Vector2.ZERO
@@ -19,9 +20,9 @@ func _process(delta: float) -> void:
 
 
 func check_for_self_destruct() -> void:
-	if position.x > 1000 or position.x < -1000:
+	if position.x > 10000 or position.x < -10000:
 		queue_free()
-	if position.y > 1000 or position.y < -1000:
+	if position.y > 10000 or position.y < -10000:
 		queue_free()
 
 
@@ -32,3 +33,8 @@ func explode() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	explode()
+
+
+func _on_hurt_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		body.take_damage(damage)

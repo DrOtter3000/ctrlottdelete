@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var pause_menu: Control = $PauseMenu
 
 @export var hitpoints := 10
+@export var speed := 250
 
-const SPEED = 300.0
 
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * SPEED
+	velocity = direction * speed
 	
 	var mouse_position = get_global_mouse_position()
 	if mouse_position.x > position.x:
@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(damage: int) -> void:
 	hitpoints -= damage
 	check_if_alive()
+	print(hitpoints)
 
 
 func check_if_alive():

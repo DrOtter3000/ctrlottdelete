@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci6ohnkcmi8cf"]
+[gd_scene load_steps=8 format=3 uid="uid://ci6ohnkcmi8cf"]
 
 [ext_resource type="Script" path="res://Enemies/Projectiles/projectile.gd" id="1_355bl"]
 [ext_resource type="Texture2D" uid="uid://6v2ekljv3sfx" path="res://Enemies/Projectiles/Projektil.png" id="2_4lx6a"]
@@ -35,6 +35,18 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtArea:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_17nln"]
 length = 0.001
@@ -50,6 +62,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_faefq"]
 _data = {
@@ -57,11 +81,14 @@ _data = {
 "explode": SubResource("Animation_xbgkf")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhunf"]
+radius = 119.206
+
 [node name="Projectile" type="Area2D"]
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_355bl")
-speed = 250
+speed = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hfd2o")
@@ -75,4 +102,11 @@ libraries = {
 "": SubResource("AnimationLibrary_faefq")
 }
 
+[node name="HurtArea" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+shape = SubResource("CircleShape2D_rhunf")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
