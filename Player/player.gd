@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var pause_menu: Control = $PauseMenu
 
+@export var hitpoints := 10
+
 const SPEED = 300.0
 
 
@@ -27,3 +29,13 @@ func _physics_process(delta: float) -> void:
 		sprite_2d.flip_h = true
 	
 	move_and_slide()
+
+
+func take_damage(damage: int) -> void:
+	hitpoints -= damage
+	check_if_alive()
+
+
+func check_if_alive():
+	if hitpoints <= 0:
+		print("game over")

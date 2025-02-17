@@ -42,6 +42,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hurt_player"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_w101d"]
 resource_name = "walk"
@@ -69,6 +83,8 @@ _data = {
 }
 
 [node name="Slime" instance=ExtResource("1_wy4gt")]
+speed = 250
+attack_rate = 0.75
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_6or85")

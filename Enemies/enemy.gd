@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var hitpoints := 5.0
 @export var speed := 200
 @export var attack_rate := .5
+@export var damage := 1
 
 var player
 var player_attackable := false
@@ -33,6 +34,10 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("walk")
 	
 	move_and_slide()
+
+
+func hurt_player() -> void:
+	player.take_damage(damage)
 
 
 func _on_attack_timer_timeout() -> void:
