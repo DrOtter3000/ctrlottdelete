@@ -166,7 +166,7 @@ Music:
 -> TBA
 
 SFX:
--> TBA"
+-> Kenney (kenney.nl)"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
