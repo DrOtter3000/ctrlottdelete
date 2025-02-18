@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmj76gpmm2qd7"]
+
+[ext_resource type="Script" path="res://UI/game_over_screen.gd" id="1_qa5dv"]
+[ext_resource type="FontFile" uid="uid://dyey30lwflix3" path="res://Fonts/Marker Felt.ttf" id="2_knnit"]
+
+[sub_resource type="Animation" id="Animation_wlu68"]
+resource_name = "default"
+length = 12.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/LblGameOver:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.864866, 0.354886, 0, 1), Color(1, 1, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(0.41583, 0.00222845, 0.790981, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pa5if"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/LblGameOver:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1dyq1"]
+_data = {
+"RESET": SubResource("Animation_pa5if"),
+"default": SubResource("Animation_wlu68")
+}
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qa5dv")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="LblGameOver" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("2_knnit")
+theme_override_font_sizes/font_size = 256
+text = "Game Over!"
+
+[node name="LblAdditionalText" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Butter Luck Next Time"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="BtnRestart" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart"
+
+[node name="BtnMenue" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1dyq1")
+}
+autoplay = "default"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BtnRestart" to="." method="_on_btn_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/BtnMenue" to="." method="_on_btn_menue_pressed"]
