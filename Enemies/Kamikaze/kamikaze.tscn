@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5koxic5kip0l"]
+
+[ext_resource type="PackedScene" uid="uid://6x1a8q27db8p" path="res://Enemies/enemy.tscn" id="1_ufkqs"]
+[ext_resource type="Texture2D" uid="uid://bn3gr0flhc1pu" path="res://Enemies/Kamikaze/Rainboom.png" id="2_gob8l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jiw7n"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxbss"]
+radius = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_suw18"]
+radius = 2048.0
+
+[sub_resource type="Animation" id="Animation_s1rqr"]
+resource_name = "walk"
+step = 0.025
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ylri"]
+_data = {
+"walk": SubResource("Animation_s1rqr")
+}
+
+[node name="Kamikaze" instance=ExtResource("1_ufkqs")]
+script = null
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_gob8l")
+
+[node name="HurtBox" parent="." index="2"]
+visible = false
+shape = SubResource("CircleShape2D_jiw7n")
+
+[node name="Range" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_uxbss")
+
+[node name="MaxRange" parent="." index="4"]
+visible = false
+
+[node name="CollisionShape2D" parent="MaxRange" index="0"]
+shape = SubResource("CircleShape2D_suw18")
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_4ylri")
+}
