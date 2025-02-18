@@ -83,7 +83,6 @@ _data = {
 }
 
 [node name="Slime" instance=ExtResource("1_wy4gt")]
-speed = 250
 attack_rate = 0.75
 
 [node name="Sprite2D" parent="Graphic" index="0"]
