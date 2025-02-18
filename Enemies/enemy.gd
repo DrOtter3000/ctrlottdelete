@@ -5,7 +5,7 @@ class_name Enemy
 @onready var hurt_box: CollisionShape2D = $HurtBox
 @onready var attack_timer: Timer = $AttackTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var graphic: Node2D = $Graphic
 
 @export var hitpoints := 5.0
 @export var speed := 200
@@ -60,6 +60,6 @@ func _on_max_range_body_exited(body: Node2D) -> void:
 
 func set_sprite_direction() -> void:
 	if player.position.x > position.x:
-		sprite_2d.flip_h = true
+		graphic.scale.x = 1
 	else:
-		sprite_2d.flip_h = false
+		graphic.scale.x = -1

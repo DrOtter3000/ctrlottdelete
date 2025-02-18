@@ -9,7 +9,9 @@ motion_mode = 1
 platform_floor_layers = 4294967040
 script = ExtResource("1_gwmli")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Graphic" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphic"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
