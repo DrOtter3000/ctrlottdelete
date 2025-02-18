@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://vaspg23y30gr"]
+
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
+[ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
+[ext_resource type="PackedScene" uid="uid://j6rr43ltwdd" path="res://Player/player.tscn" id="2_dbe2t"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_14pq3")
+
+[node name="Ground" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(2400, 1400)
+offset_right = 4800.0
+offset_bottom = 2700.0
+texture = ExtResource("1_hbd4v")
+
+[node name="PlayerStartPosition" type="Marker2D" parent="." groups=["PlayerStartPosition"]]
+position = Vector2(2400, 2550)
+
+[node name="EnemyStartPositions" type="Node2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="TopWalls" type="Node2D" parent="Walls"]
+
+[node name="BottomWalls" type="Node2D" parent="Walls"]
+position = Vector2(0, 2700)
+
+[node name="LeftWalls" type="Node2D" parent="Walls"]
+
+[node name="RightWalls" type="Node2D" parent="Walls"]
+position = Vector2(1200, 0)
+scale = Vector2(-1, 1)
+
+[node name="Pillars" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_dbe2t")]
+position = Vector2(2400, 2550)

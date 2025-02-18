@@ -186,16 +186,17 @@ position = Vector2(-1800, 1500)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Kamikaze" parent="Enemies" instance=ExtResource("6_042hg")]
-position = Vector2(1200, 750)
-
-[node name="Paint Elemental" parent="Enemies" instance=ExtResource("6_x8p0x")]
-
-[node name="PermanentMarker" parent="Enemies" instance=ExtResource("7_ukp7p")]
-position = Vector2(900, 300)
-
-[node name="Slime" parent="Enemies" instance=ExtResource("8_wvii1")]
-position = Vector2(-750, 750)
-
 [node name="Player" parent="." instance=ExtResource("1_06dtt")]
 position = Vector2(30, -76)
+
+[node name="Kamikaze" parent="." instance=ExtResource("6_042hg")]
+position = Vector2(1800, 150)
+
+[node name="Paint Elemental" parent="." instance=ExtResource("6_x8p0x")]
+position = Vector2(1500, 1050)
+
+[node name="PermanentMarker" parent="." instance=ExtResource("7_ukp7p")]
+position = Vector2(-1350, -300)
+
+[node name="Slime" parent="." instance=ExtResource("8_wvii1")]
+position = Vector2(-1200, 1050)
