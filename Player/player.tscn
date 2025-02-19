@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://j6rr43ltwdd"]
+[gd_scene load_steps=6 format=3 uid="uid://j6rr43ltwdd"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
+[ext_resource type="PackedScene" uid="uid://c834ndndienq5" path="res://Player/player_melee_attack.tscn" id="2_fckat"]
 [ext_resource type="Texture2D" uid="uid://gtb52m6phril" path="res://Player/otter.png" id="2_qj2ip"]
 [ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
 
@@ -14,6 +15,8 @@ motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_fr5kr")
+melee_damage = 5.0
+melee_attack_scene = ExtResource("2_fckat")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -28,3 +31,9 @@ offset = Vector2(-6, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_tdi36")]
 visible = false
+
+[node name="AttackPivot" type="Node2D" parent="."]
+position = Vector2(0, -54)
+
+[node name="AttackSpawnPosition" type="Marker2D" parent="AttackPivot"]
+position = Vector2(96, 0)

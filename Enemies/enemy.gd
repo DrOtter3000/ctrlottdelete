@@ -39,6 +39,21 @@ func _physics_process(delta: float) -> void:
 
 func hurt_player() -> void:
 	player.take_damage(damage)
+	check_if_alive()
+
+
+func check_if_alive() -> void:
+	if hitpoints <= 0:
+		die()
+
+
+func die() -> void:
+	queue_free()
+
+
+func take_damage(damage: float) -> void:
+	hitpoints -= damage
+	
 
 
 func _on_attack_timer_timeout() -> void:
