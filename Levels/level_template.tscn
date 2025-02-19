@@ -265,7 +265,7 @@ position = Vector2(4650, -150)
 position = Vector2(2550, 1800)
 
 [node name="LevelGenerationTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.05
 one_shot = true
 autostart = true
 
