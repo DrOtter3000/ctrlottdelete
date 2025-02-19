@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://doqtfmi7eo6l0" path="res://Assets/Walls/corner bottom right.png" id="8_xn3eu"]
 [ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="9_tn10n"]
 [ext_resource type="PackedScene" uid="uid://dtqqnb25817a4" path="res://Levels/Corners/corner_right_base.tscn" id="10_3yyyk"]
-[ext_resource type="PackedScene" uid="uid://ci1qsvtsxlli0" path="res://Enemies/Slime/slime.tscn" id="11_y2bag"]
+[ext_resource type="PackedScene" uid="uid://cwiyh5qtpd6va" path="res://Enemies/PermanentMarker/permanent_marker.tscn" id="12_arhgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -257,10 +257,6 @@ position = Vector2(150, -150)
 [node name="CornerRightBase" parent="Walls" instance=ExtResource("10_3yyyk")]
 position = Vector2(4650, -150)
 
-[node name="Slime" parent="Walls" instance=ExtResource("11_y2bag")]
-position = Vector2(3000, 450)
-collision_mask = 3
-
 [node name="Pillars" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -272,5 +268,8 @@ position = Vector2(2550, 1800)
 wait_time = 0.01
 one_shot = true
 autostart = true
+
+[node name="PermanentMarker" parent="." instance=ExtResource("12_arhgy")]
+position = Vector2(3000, 450)
 
 [connection signal="timeout" from="LevelGenerationTimer" to="." method="_on_level_generation_timer_timeout"]

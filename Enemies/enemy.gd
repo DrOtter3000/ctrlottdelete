@@ -43,7 +43,6 @@ func hurt_player() -> void:
 
 func take_damage(damage: float) -> void:
 	if alive:
-		#TODO: Animation
 		#TODO: Knockback
 		hitpoints -= damage
 		$Graphic/Sprite2D.modulate = Color.FUCHSIA
