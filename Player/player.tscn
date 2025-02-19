@@ -18,6 +18,7 @@ script = ExtResource("1_fr5kr")
 melee_attack_scene = ExtResource("2_fckat")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="PlayerColission" type="CollisionShape2D" parent="."]
 position = Vector2(0, -54)
