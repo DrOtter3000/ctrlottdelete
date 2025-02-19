@@ -15,7 +15,6 @@ motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_fr5kr")
-melee_damage = 5.0
 melee_attack_scene = ExtResource("2_fckat")
 
 [node name="Camera2D" type="Camera2D" parent="."]
