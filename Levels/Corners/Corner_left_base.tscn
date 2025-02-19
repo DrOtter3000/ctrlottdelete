@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://y8u18gntj5l2" path="res://Assets/Corners/corner left base.png" id="1_1ew3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq3a7"]
-size = Vector2(298, 204)
+size = Vector2(298, 175)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0q1"]
-size = Vector2(39, 92)
+size = Vector2(39, 120)
 
 [node name="CornerLeftBase" type="StaticBody2D"]
 collision_layer = 4
@@ -16,9 +16,9 @@ collision_mask = 3
 texture = ExtResource("1_1ew3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -49)
+position = Vector2(1, -64)
 shape = SubResource("RectangleShape2D_tq3a7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-129.5, 100)
+position = Vector2(-129.5, 86)
 shape = SubResource("RectangleShape2D_cp0q1")

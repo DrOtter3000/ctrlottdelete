@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=14 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
 [ext_resource type="PackedScene" uid="uid://j6rr43ltwdd" path="res://Player/player.tscn" id="2_dbe2t"]
+[ext_resource type="PackedScene" uid="uid://bveb7upvwagj" path="res://Levels/Walls/wall_modular.tscn" id="3_3koa5"]
+[ext_resource type="Texture2D" uid="uid://dv4lbqqmx3f2k" path="res://Assets/Walls/wall bottom.png" id="4_p37qk"]
+[ext_resource type="Texture2D" uid="uid://h1h1l5gilyka" path="res://Assets/Walls/corner bottom left.png" id="5_tqrja"]
+[ext_resource type="Texture2D" uid="uid://du7tsotlmvns" path="res://Assets/Walls/wall side left.png" id="6_oyto5"]
+[ext_resource type="Texture2D" uid="uid://c044ojxjaxenf" path="res://Assets/Walls/wall side right.png" id="7_2w384"]
+[ext_resource type="Texture2D" uid="uid://doqtfmi7eo6l0" path="res://Assets/Walls/corner bottom right.png" id="8_xn3eu"]
+[ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="9_tn10n"]
+[ext_resource type="PackedScene" uid="uid://dtqqnb25817a4" path="res://Levels/Corners/corner_right_base.tscn" id="10_3yyyk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
+size = Vector2(4799, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkd75"]
+size = Vector2(40.5, 2643)
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_14pq3")
@@ -14,26 +28,244 @@ offset_bottom = 2700.0
 texture = ExtResource("1_hbd4v")
 
 [node name="PlayerStartPosition" type="Marker2D" parent="." groups=["PlayerStartPosition"]]
-position = Vector2(2400, 2550)
+position = Vector2(2400, 450)
 
 [node name="EnemyStartPositions" type="Node2D" parent="."]
 
 [node name="Walls" type="Node2D" parent="."]
 
+[node name="BodySideBottom" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 2700)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BodySideBottom"]
+position = Vector2(2400.5, -24.5)
+shape = SubResource("RectangleShape2D_bpgky")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/BodySideBottom"]
+position = Vector2(23, -1371.5)
+shape = SubResource("RectangleShape2D_pkd75")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/BodySideBottom"]
+position = Vector2(4776.75, -1370)
+shape = SubResource("RectangleShape2D_pkd75")
+
 [node name="TopWalls" type="Node2D" parent="Walls"]
+
+[node name="WallModular" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(300, 0)
+
+[node name="WallModular2" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(600, 0)
+
+[node name="WallModular3" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(900, 0)
+
+[node name="WallModular4" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(1200, 0)
+
+[node name="WallModular5" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(1500, 0)
+
+[node name="WallModular6" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(1800, 0)
+
+[node name="WallModular7" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(2100, 0)
+
+[node name="WallModular8" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(2400, 0)
+
+[node name="WallModular9" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(2700, 0)
+
+[node name="WallModular10" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(3000, 0)
+
+[node name="WallModular11" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(3300, 0)
+
+[node name="WallModular12" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(3600, 0)
+
+[node name="WallModular13" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(3900, 0)
+
+[node name="WallModular14" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
+position = Vector2(4200, 0)
 
 [node name="BottomWalls" type="Node2D" parent="Walls"]
 position = Vector2(0, 2700)
 
+[node name="WallBottom" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(450, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom2" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(750, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom3" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(1050, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom4" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(1350, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom5" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(1650, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom6" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(1950, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom7" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(2250, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom8" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(2550, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom9" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(2850, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom10" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(3150, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom11" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(3450, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom12" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(3750, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom13" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(4050, -150)
+texture = ExtResource("4_p37qk")
+
+[node name="WallBottom14" type="Sprite2D" parent="Walls/BottomWalls"]
+position = Vector2(4350, -150)
+texture = ExtResource("4_p37qk")
+
 [node name="LeftWalls" type="Node2D" parent="Walls"]
+
+[node name="CornerBottomLeft" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 2550)
+texture = ExtResource("5_tqrja")
+
+[node name="WallSideLeft" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 2250)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft2" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 1950)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft3" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 1650)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft4" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 1350)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft5" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 1050)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft6" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 750)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft7" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 450)
+texture = ExtResource("6_oyto5")
+
+[node name="WallSideLeft8" type="Sprite2D" parent="Walls/LeftWalls"]
+position = Vector2(150, 150)
+texture = ExtResource("6_oyto5")
 
 [node name="RightWalls" type="Node2D" parent="Walls"]
 position = Vector2(1200, 0)
 scale = Vector2(-1, 1)
+
+[node name="WallSideRight" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 150)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight2" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 450)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight3" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 750)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight4" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 1050)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight5" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 1350)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight6" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 1650)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight7" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 1950)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="WallSideRight8" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 2250)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("7_2w384")
+
+[node name="CornerBottomRight" type="Sprite2D" parent="Walls/RightWalls"]
+position = Vector2(-3450, 2550)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("8_xn3eu")
+
+[node name="CornerLeftBase" parent="Walls" instance=ExtResource("9_tn10n")]
+position = Vector2(150, -150)
+
+[node name="CornerRightBase" parent="Walls" instance=ExtResource("10_3yyyk")]
+position = Vector2(4650, -150)
 
 [node name="Pillars" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_dbe2t")]
-position = Vector2(2400, 2550)
+position = Vector2(2550, 1800)
+
+[node name="LevelGenerationTimer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LevelGenerationTimer" to="." method="_on_level_generation_timer_timeout"]
