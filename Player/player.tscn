@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://j6rr43ltwdd"]
+[gd_scene load_steps=9 format=3 uid="uid://j6rr43ltwdd"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
 [ext_resource type="PackedScene" uid="uid://c834ndndienq5" path="res://Player/player_melee_attack.tscn" id="2_fckat"]
@@ -9,6 +9,42 @@
 radius = 8.0
 height = 134.0
 
+[sub_resource type="Animation" id="Animation_xy7yk"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rnoc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yamwp"]
+_data = {
+"RESET": SubResource("Animation_rnoc6"),
+"default": SubResource("Animation_xy7yk")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 6
 motion_mode = 1
@@ -17,6 +53,11 @@ platform_floor_layers = 4294967040
 script = ExtResource("1_fr5kr")
 melee_attack_scene = ExtResource("2_fckat")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -64)
+texture = ExtResource("2_qj2ip")
+offset = Vector2(-6, 0)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
@@ -24,10 +65,14 @@ position_smoothing_enabled = true
 position = Vector2(0, -54)
 shape = SubResource("CapsuleShape2D_0nse2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7, -64)
-texture = ExtResource("2_qj2ip")
-offset = Vector2(-6, 0)
+[node name="TransitionRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(2400, 2000)
+offset_left = -1392.0
+offset_top = -968.0
+offset_right = 1413.0
+offset_bottom = 1032.0
+color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_tdi36")]
 visible = false
@@ -37,3 +82,9 @@ position = Vector2(0, -54)
 
 [node name="AttackSpawnPosition" type="Marker2D" parent="AttackPivot"]
 position = Vector2(96, 0)
+
+[node name="EffectPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yamwp")
+}
+autoplay = "default"

@@ -29,7 +29,7 @@ offset_bottom = 2700.0
 texture = ExtResource("1_hbd4v")
 
 [node name="PlayerStartPosition" type="Marker2D" parent="." groups=["PlayerStartPosition"]]
-position = Vector2(2400, 450)
+position = Vector2(2400, 2400)
 
 [node name="EnemyStartPositions" type="Node2D" parent="."]
 
@@ -262,7 +262,7 @@ position = Vector2(4650, -150)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_dbe2t")]
-position = Vector2(2550, 1800)
+position = Vector2(2400, 2400)
 
 [node name="LevelGenerationTimer" type="Timer" parent="."]
 wait_time = 0.05

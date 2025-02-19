@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var attack_spawn_position: Marker2D = $AttackPivot/AttackSpawnPosition
+@onready var transition_rect: ColorRect = $TransitionRect
 
 @export var hitpoints := 10
 @export var speed := 250
@@ -13,7 +14,7 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	position = get_tree().get_first_node_in_group("PlayerStartPosition").global_position
-
+	transition_rect.visible = true
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
