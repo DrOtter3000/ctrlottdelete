@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=14 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://doqtfmi7eo6l0" path="res://Assets/Walls/corner bottom right.png" id="8_xn3eu"]
 [ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="9_tn10n"]
 [ext_resource type="PackedScene" uid="uid://dtqqnb25817a4" path="res://Levels/Corners/corner_right_base.tscn" id="10_3yyyk"]
-[ext_resource type="PackedScene" uid="uid://bgtl76tcow4mf" path="res://Enemies/PaintElemental/paint_elemental.tscn" id="14_ik00b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -268,8 +267,5 @@ position = Vector2(2400, 2400)
 wait_time = 0.05
 one_shot = true
 autostart = true
-
-[node name="Paint Elemental" parent="." instance=ExtResource("14_ik00b")]
-position = Vector2(4050, 600)
 
 [connection signal="timeout" from="LevelGenerationTimer" to="." method="_on_level_generation_timer_timeout"]
