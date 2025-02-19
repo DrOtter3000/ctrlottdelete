@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr2t81l6grit0"]
+
+[ext_resource type="PackedScene" uid="uid://d0g5lbgwt182q" path="res://Levels/Pillars/pillar.tscn" id="1_4dqd0"]
+[ext_resource type="Script" path="res://Levels/Pillars/pillars.gd" id="1_wqdcn"]
+
+[node name="Pillars" type="Node2D"]
+script = ExtResource("1_wqdcn")
+
+[node name="Pillar" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(600, 600)
+
+[node name="Pillar2" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(1200, 600)
+
+[node name="Pillar3" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(1800, 600)
+
+[node name="Pillar4" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(2400, 600)
+
+[node name="Pillar5" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(3000, 600)
+
+[node name="Pillar6" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(3600, 600)
+
+[node name="Pillar7" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(4200, 600)
+
+[node name="Pillar8" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(600, 1350)
+
+[node name="Pillar9" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(1200, 1350)
+
+[node name="Pillar10" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(1800, 1350)
+
+[node name="Pillar11" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(2400, 1350)
+
+[node name="Pillar12" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(3000, 1350)
+
+[node name="Pillar13" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(3600, 1350)
+
+[node name="Pillar14" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(4200, 1350)
+
+[node name="Pillar15" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(600, 2100)
+
+[node name="Pillar16" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(1200, 2100)
+
+[node name="Pillar17" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(1800, 2100)
+
+[node name="Pillar18" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(2400, 2100)
+
+[node name="Pillar19" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(3000, 2100)
+
+[node name="Pillar20" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(3600, 2100)
+
+[node name="Pillar21" parent="." instance=ExtResource("1_4dqd0")]
+position = Vector2(4200, 2100)

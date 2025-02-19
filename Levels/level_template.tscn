@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=15 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://doqtfmi7eo6l0" path="res://Assets/Walls/corner bottom right.png" id="8_xn3eu"]
 [ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="9_tn10n"]
 [ext_resource type="PackedScene" uid="uid://dtqqnb25817a4" path="res://Levels/Corners/corner_right_base.tscn" id="10_3yyyk"]
+[ext_resource type="PackedScene" uid="uid://dr2t81l6grit0" path="res://Levels/Pillars/pillars.tscn" id="11_pp81v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -256,9 +257,109 @@ position = Vector2(150, -150)
 [node name="CornerRightBase" parent="Walls" instance=ExtResource("10_3yyyk")]
 position = Vector2(4650, -150)
 
-[node name="Pillars" type="Node2D" parent="."]
+[node name="Pillars" parent="." instance=ExtResource("11_pp81v")]
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyPositions" type="Node2D" parent="Enemies"]
+
+[node name="EnemyPosition" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(300, 300)
+
+[node name="EnemyPosition2" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(900, 300)
+
+[node name="EnemyPosition3" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(1510, 310)
+
+[node name="EnemyPosition4" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(2110, 310)
+
+[node name="EnemyPosition5" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(2710, 310)
+
+[node name="EnemyPosition6" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3310, 310)
+
+[node name="EnemyPosition7" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3910, 310)
+
+[node name="EnemyPosition8" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(4510, 310)
+
+[node name="EnemyPosition9" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(310, 760)
+
+[node name="EnemyPosition10" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(910, 760)
+
+[node name="EnemyPosition11" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(1520, 770)
+
+[node name="EnemyPosition12" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(2120, 770)
+
+[node name="EnemyPosition13" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(2720, 770)
+
+[node name="EnemyPosition14" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3320, 770)
+
+[node name="EnemyPosition15" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3920, 770)
+
+[node name="EnemyPosition16" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(4520, 770)
+
+[node name="EnemyPosition17" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(310, 1210)
+
+[node name="EnemyPosition18" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(910, 1210)
+
+[node name="EnemyPosition19" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(1520, 1220)
+
+[node name="EnemyPosition20" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(2120, 1220)
+
+[node name="EnemyPosition21" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(2720, 1220)
+
+[node name="EnemyPosition22" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3320, 1220)
+
+[node name="EnemyPosition23" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3920, 1220)
+
+[node name="EnemyPosition24" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(4520, 1220)
+
+[node name="EnemyPosition25" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3910, 1660)
+
+[node name="EnemyPosition26" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(4510, 1660)
+
+[node name="EnemyPosition27" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(3910, 2110)
+
+[node name="EnemyPosition28" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(4510, 2110)
+
+[node name="EnemyPosition29" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(310, 1660)
+
+[node name="EnemyPosition30" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(910, 1660)
+
+[node name="EnemyPosition31" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(310, 2110)
+
+[node name="EnemyPosition32" type="Marker2D" parent="Enemies/EnemyPositions"]
+position = Vector2(910, 2110)
+
+[node name="EnemiesOnField" type="Node2D" parent="Enemies"]
 
 [node name="Player" parent="." instance=ExtResource("2_dbe2t")]
 position = Vector2(2400, 2400)

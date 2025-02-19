@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dovjvlg3oaxhl" path="res://Assets/Pillars/pillar base.png" id="2_s3sa3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2g7u"]
-size = Vector2(73, 224)
+size = Vector2(73, 179)
 
 [node name="Pillar" type="StaticBody2D" groups=["Walls"]]
 position = Vector2(1, -1)
@@ -18,5 +18,5 @@ position = Vector2(0, -96)
 texture = ExtResource("2_s3sa3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -121)
+position = Vector2(-7, -143.5)
 shape = SubResource("RectangleShape2D_w2g7u")
