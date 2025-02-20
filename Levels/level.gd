@@ -6,6 +6,7 @@ extends Node2D
 var floor_modulators := [Color.WHITE, Color.BEIGE, Color.BURLYWOOD, Color.DIM_GRAY]
 var available_styles = ["blank", "vines", "cracked"]
 var style :String
+var enemies_alive := 0
 
 @export var slime_scene: PackedScene
 @export var tank_scene: PackedScene
@@ -74,16 +75,16 @@ func select_enemies() -> void:
 			kamikazes = 2
 	
 	for i in slimes:
-		get_tree().call_group("Level", "set_enemy", "slime")
+		set_enemy("slime")
 		await get_tree().create_timer(.01).timeout 
 	for i in tanks:
-		get_tree().call_group("Level", "set_enemy", "tank")
+		set_enemy("tank")
 		await get_tree().create_timer(.01).timeout
 	for i in ranges:
-		get_tree().call_group("Level", "set_enemy", "range")
+		set_enemy("range")
 		await get_tree().create_timer(.01).timeout
 	for i in kamikazes:
-		get_tree().call_group("Level", "set_enemy", "kamikaze")
+		set_enemy("kamikaze")
 		await get_tree().create_timer(.01).timeout
 
 
