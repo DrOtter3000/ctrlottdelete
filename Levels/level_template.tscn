@@ -1,17 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=19 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
 [ext_resource type="PackedScene" uid="uid://j6rr43ltwdd" path="res://Player/player.tscn" id="2_dbe2t"]
+[ext_resource type="PackedScene" uid="uid://ci1qsvtsxlli0" path="res://Enemies/Slime/slime.tscn" id="2_k5wiv"]
 [ext_resource type="PackedScene" uid="uid://bveb7upvwagj" path="res://Levels/Walls/wall_modular.tscn" id="3_3koa5"]
+[ext_resource type="PackedScene" uid="uid://cwiyh5qtpd6va" path="res://Enemies/PermanentMarker/permanent_marker.tscn" id="3_o2u31"]
 [ext_resource type="Texture2D" uid="uid://dv4lbqqmx3f2k" path="res://Assets/Walls/wall bottom.png" id="4_p37qk"]
 [ext_resource type="Texture2D" uid="uid://h1h1l5gilyka" path="res://Assets/Walls/corner bottom left.png" id="5_tqrja"]
+[ext_resource type="PackedScene" uid="uid://b5koxic5kip0l" path="res://Enemies/Kamikaze/kamikaze.tscn" id="5_x2xrg"]
 [ext_resource type="Texture2D" uid="uid://du7tsotlmvns" path="res://Assets/Walls/wall side left.png" id="6_oyto5"]
 [ext_resource type="Texture2D" uid="uid://c044ojxjaxenf" path="res://Assets/Walls/wall side right.png" id="7_2w384"]
 [ext_resource type="Texture2D" uid="uid://doqtfmi7eo6l0" path="res://Assets/Walls/corner bottom right.png" id="8_xn3eu"]
 [ext_resource type="PackedScene" uid="uid://bs6g4f5armbr5" path="res://Levels/Corners/Corner_left_base.tscn" id="9_tn10n"]
 [ext_resource type="PackedScene" uid="uid://dtqqnb25817a4" path="res://Levels/Corners/corner_right_base.tscn" id="10_3yyyk"]
 [ext_resource type="PackedScene" uid="uid://dr2t81l6grit0" path="res://Levels/Pillars/pillars.tscn" id="11_pp81v"]
+[ext_resource type="PackedScene" uid="uid://bgtl76tcow4mf" path="res://Enemies/PaintElemental/paint_elemental.tscn" id="14_ik00b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -19,8 +23,12 @@ size = Vector2(4799, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkd75"]
 size = Vector2(40.5, 2643)
 
-[node name="LevelTemplate" type="Node2D"]
+[node name="LevelTemplate" type="Node2D" groups=["Level"]]
 script = ExtResource("1_14pq3")
+slime_scene = ExtResource("2_k5wiv")
+tank_scene = ExtResource("3_o2u31")
+range_scene = ExtResource("14_ik00b")
+kamikaze_scene = ExtResource("5_x2xrg")
 
 [node name="Ground" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(2400, 1400)
