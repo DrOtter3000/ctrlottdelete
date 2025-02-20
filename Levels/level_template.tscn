@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=20 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dtqqnb25817a4" path="res://Levels/Corners/corner_right_base.tscn" id="10_3yyyk"]
 [ext_resource type="PackedScene" uid="uid://dr2t81l6grit0" path="res://Levels/Pillars/pillars.tscn" id="11_pp81v"]
 [ext_resource type="PackedScene" uid="uid://bgtl76tcow4mf" path="res://Enemies/PaintElemental/paint_elemental.tscn" id="14_ik00b"]
+[ext_resource type="PackedScene" uid="uid://bdui3ajuuimqh" path="res://Levels/Door/door.tscn" id="17_0sa7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -76,9 +77,6 @@ position = Vector2(1200, 0)
 
 [node name="WallModular5" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
 position = Vector2(1500, 0)
-
-[node name="WallModular6" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
-position = Vector2(1800, 0)
 
 [node name="WallModular7" parent="Walls/TopWalls" instance=ExtResource("3_3koa5")]
 position = Vector2(2100, 0)
@@ -264,6 +262,9 @@ position = Vector2(150, -150)
 
 [node name="CornerRightBase" parent="Walls" instance=ExtResource("10_3yyyk")]
 position = Vector2(4650, -150)
+
+[node name="Door" parent="." instance=ExtResource("17_0sa7f")]
+position = Vector2(1950, -150)
 
 [node name="Pillars" parent="." instance=ExtResource("11_pp81v")]
 
