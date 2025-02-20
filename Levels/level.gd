@@ -48,33 +48,23 @@ func select_enemies() -> void:
 	var tanks := 0
 	var ranges := 0
 	var kamikazes := 0
+	
+	var enemy_list := {"slime": 10, "tanks": 0, "ranges": 0, "kamikazes": 0}
 
 	match Gamestate.level:
 		1:
-			slimes = 10
-			tanks = 0
-			ranges = 0
-			kamikazes = 0
+			enemy_list = {"slime": 10, "tanks": 0, "ranges": 0, "kamikazes": 0}
 		
 		2:
-			slimes = 9
-			tanks = 0
-			ranges = 3
-			kamikazes = 0
+			enemy_list = {"slime": 9, "tanks": 0, "ranges": 3, "kamikazes": 0}
 		
 		3:
-			slimes = 9
-			tanks = 1
-			ranges = 3
-			kamikazes = 0
+			enemy_list = {"slime": 8, "tanks": 1, "ranges": 3, "kamikazes": 0}
 		
 		4:
-			slimes = 5
-			tanks = 5
-			ranges = 3
-			kamikazes = 2
+			enemy_list = {"slime": 7, "tanks": 3, "ranges": 5, "kamikazes": 2}
 	
-	for i in slimes:
+	for i in enemy_list["slime"]:
 		set_enemy("slime")
 		await get_tree().create_timer(.01).timeout 
 	for i in tanks:
