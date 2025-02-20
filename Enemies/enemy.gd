@@ -41,10 +41,10 @@ func hurt_player() -> void:
 	player.take_damage(damage)
 
 
-func take_damage(damage: float) -> void:
+func take_damage(amount: float) -> void:
 	if alive:
 		#TODO: Knockback
-		hitpoints -= damage
+		hitpoints -= amount
 		$Graphic/Sprite2D.modulate = Color.FUCHSIA
 		check_if_alive()
 		await get_tree().create_timer(.075).timeout 

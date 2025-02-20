@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var ground: TextureRect = $Ground
 @onready var enemy_positions: Node2D = $Enemies/EnemyPositions
+@onready var enemies_on_field: Node2D = $Enemies/EnemiesOnField
 
 var floor_modulators := [Color.WHITE, Color.BEIGE, Color.BURLYWOOD, Color.DIM_GRAY]
 var available_styles = ["blank", "vines", "cracked"]
@@ -80,3 +81,9 @@ func select_enemies() -> void:
 
 func _on_level_generation_timer_timeout() -> void:
 	generate_level()
+
+
+func _on_count_enemies_timer_timeout() -> void:
+	print(enemies_on_field.get_child_count())
+	if enemies_on_field.get_child_count() == 0:
+		print("level done")
