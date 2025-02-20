@@ -46,13 +46,8 @@ func generate_level() -> void:
 
 
 func select_enemies() -> void:
-	var slimes := 0
-	var tanks := 0
-	var ranges := 0
-	var kamikazes := 0
-	
 	var enemy_list := {"slime": 0, "tanks": 0, "ranges": 0, "kamikazes": 0}
-
+	
 	match Gamestate.level:
 		1:
 			enemy_list = {"slime": 10, "tanks": 0, "ranges": 0, "kamikazes": 0}
