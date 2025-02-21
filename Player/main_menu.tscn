@@ -175,6 +175,7 @@ SFX:
 -> danlucaz
 -> EricsSoundschmiede\\
 -> iwanPlays
+-> Sheyvan
 "
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]

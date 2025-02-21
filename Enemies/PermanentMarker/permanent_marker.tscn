@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwiyh5qtpd6va"]
+[gd_scene load_steps=18 format=3 uid="uid://cwiyh5qtpd6va"]
 
 [ext_resource type="PackedScene" uid="uid://6x1a8q27db8p" path="res://Enemies/enemy.tscn" id="1_52cxl"]
 [ext_resource type="Texture2D" uid="uid://dt33xwy1cxw25" path="res://Enemies/PermanentMarker/Tank.png" id="2_5lgpu"]
@@ -147,7 +147,7 @@ tracks/2/path = NodePath("Graphic/Sprite2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.2, 0)]
@@ -159,7 +159,7 @@ tracks/3/path = NodePath("Graphic/Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -48), Vector2(0, 0)]
@@ -232,6 +232,12 @@ _data = {
 "walk": SubResource("Animation_m4uli")
 }
 
+[sub_resource type="Gradient" id="Gradient_c151y"]
+colors = PackedColorArray(0.165656, 0.165656, 0.165656, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jcfec"]
+gradient = SubResource("Gradient_c151y")
+
 [sub_resource type="Curve" id="Curve_7uctu"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0791367, 0.911121), 0.910306, 0.910306, 0, 0, Vector2(0.455635, 0.952598), -0.299495, -0.299495, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
@@ -252,6 +258,7 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 98, 0)
 scale_min = 0.2
 scale_curve = SubResource("CurveTexture_iny8x")
+color_initial_ramp = SubResource("GradientTexture1D_jcfec")
 turbulence_enabled = true
 
 [node name="PermanentMarker" instance=ExtResource("1_52cxl")]
