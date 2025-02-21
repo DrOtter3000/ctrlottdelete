@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_btn_play_pressed() -> void:
 	Gamestate.play_button_sound()
-	get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_template.tscn")
 
 
 func _on_btn_options_pressed() -> void:

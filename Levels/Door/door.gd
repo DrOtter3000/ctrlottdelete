@@ -5,11 +5,14 @@ extends Node2D
 
 
 func open() -> void:
+	#TODO: add sound effect
 	door_collision.disabled = true
 	next_level_area.monitoring = true
 
 
 func _on_next_level_area_body_entered(body: Node2D) -> void:
-	#TODO: add sound effect
-	Gamestate.level += 1
-	get_tree().change_scene_to_file("res://Levels/level_template.tscn")
+	if Gamestate.level == 4:
+		get_tree().change_scene_to_file("res://UI/winning_screen.tscn")
+	else:
+		Gamestate.level += 1
+		get_tree().change_scene_to_file("res://Levels/level_template.tscn")

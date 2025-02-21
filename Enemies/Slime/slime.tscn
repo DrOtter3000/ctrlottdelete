@@ -146,15 +146,20 @@ texture = ExtResource("2_6or85")
 flip_h = true
 
 [node name="HurtBox" parent="." index="1"]
+visible = false
 position = Vector2(0, -32)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_08eyb")
 
 [node name="Range" parent="." index="2"]
+visible = false
 position = Vector2(0, -32)
 
 [node name="CollisionShape2D" parent="Range" index="0"]
 shape = SubResource("CircleShape2D_peou6")
+
+[node name="MaxRange" parent="." index="3"]
+visible = false
 
 [node name="CollisionShape2D" parent="MaxRange" index="0"]
 position = Vector2(0, -32)

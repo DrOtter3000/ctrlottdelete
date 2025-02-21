@@ -2,47 +2,74 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
 [ext_resource type="PackedScene" uid="uid://c834ndndienq5" path="res://Player/player_melee_attack.tscn" id="2_fckat"]
-[ext_resource type="Texture2D" uid="uid://gtb52m6phril" path="res://Player/otter.png" id="2_qj2ip"]
 [ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
+[ext_resource type="Texture2D" uid="uid://b7n2fhvhavm3y" path="res://Player/Otter.png" id="3_q4dk8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nse2"]
 radius = 8.0
 height = 134.0
 
-[sub_resource type="Animation" id="Animation_xy7yk"]
+[sub_resource type="Animation" id="Animation_02a1f"]
 resource_name = "default"
+length = 2.0
+loop_mode = 1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TransitionRect:color")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.475),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.025, 0.975), Vector2(1, 1), Vector2(0.975, 1.025)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.475),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [0.0, 0.0349066]
 }
 
-[sub_resource type="Animation" id="Animation_rnoc6"]
+[sub_resource type="Animation" id="Animation_qxaj4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TransitionRect:color")
+tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yamwp"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w22qw"]
 _data = {
-"RESET": SubResource("Animation_rnoc6"),
-"default": SubResource("Animation_xy7yk")
+"RESET": SubResource("Animation_qxaj4"),
+"default": SubResource("Animation_02a1f")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -55,7 +82,7 @@ melee_attack_scene = ExtResource("2_fckat")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, -64)
-texture = ExtResource("2_qj2ip")
+texture = ExtResource("3_q4dk8")
 offset = Vector2(-6, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -64,15 +91,6 @@ position_smoothing_enabled = true
 [node name="PlayerColission" type="CollisionShape2D" parent="."]
 position = Vector2(0, -54)
 shape = SubResource("CapsuleShape2D_0nse2")
-
-[node name="TransitionRect" type="ColorRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(2400, 2000)
-offset_left = -1392.0
-offset_top = -968.0
-offset_right = 1413.0
-offset_bottom = 1032.0
-color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_tdi36")]
 visible = false
@@ -83,8 +101,8 @@ position = Vector2(0, -54)
 [node name="AttackSpawnPosition" type="Marker2D" parent="AttackPivot"]
 position = Vector2(96, 0)
 
-[node name="EffectPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yamwp")
+"": SubResource("AnimationLibrary_w22qw")
 }
 autoplay = "default"
