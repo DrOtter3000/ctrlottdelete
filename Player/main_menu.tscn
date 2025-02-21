@@ -170,7 +170,8 @@ Music:
 
 SFX:
 -> Kenney (kenney.nl)
--> SamsterBirdies"
+-> SamsterBirdies
+-> Sadiquecat"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
