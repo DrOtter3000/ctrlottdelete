@@ -455,5 +455,6 @@ text = "BOOM!"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
 stream = ExtResource("6_juvey")
+bus = &"SFX"
 
 [connection signal="body_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_entered"]

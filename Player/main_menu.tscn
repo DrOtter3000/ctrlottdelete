@@ -171,7 +171,11 @@ Music:
 SFX:
 -> Kenney (kenney.nl)
 -> SamsterBirdies
--> Sadiquecat"
+-> Sadiquecat
+-> danlucaz
+-> EricsSoundschmiede\\
+-> iwanPlays
+"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
