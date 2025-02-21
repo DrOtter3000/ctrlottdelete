@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5koxic5kip0l"]
+[gd_scene load_steps=15 format=3 uid="uid://b5koxic5kip0l"]
 
 [ext_resource type="PackedScene" uid="uid://6x1a8q27db8p" path="res://Enemies/enemy.tscn" id="1_ufkqs"]
 [ext_resource type="Texture2D" uid="uid://bn3gr0flhc1pu" path="res://Enemies/Kamikaze/Rainboom.png" id="2_gob8l"]
 [ext_resource type="Script" path="res://Enemies/Kamikaze/kamikaze.gd" id="2_nhv10"]
 [ext_resource type="Texture2D" uid="uid://cqx42g3h4ebcb" path="res://Enemies/Kamikaze/explosion.png" id="4_r2fsy"]
+[ext_resource type="FontFile" uid="uid://b4rax22r1fsyi" path="res://Fonts/APACAXI COMIC.ttf" id="5_eslux"]
+[ext_resource type="AudioStream" uid="uid://dg34r2yhi0dkv" path="res://Audio/SFX/Enemies/explosion.wav" id="6_juvey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jiw7n"]
 radius = 64.0
@@ -103,10 +105,46 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LblExposionText:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ExplosionShape:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HurtBox:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dnu6l"]
 resource_name = "attack"
-length = 0.3
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,9 +176,12 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"play_explosion_sound"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -152,10 +193,10 @@ tracks/3/path = NodePath("ExplosionArea:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -180,6 +221,42 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LblExposionText:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ExplosionShape:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HurtBox:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_s1rqr"]
@@ -210,6 +287,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.10472, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_walk_sound"
+}, {
+"args": [],
+"method": &"play_walk_sound"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ylri"]
@@ -264,5 +358,19 @@ shape = SubResource("CircleShape2D_1nypp")
 libraries = {
 "": SubResource("AnimationLibrary_4ylri")
 }
+
+[node name="LblExposionText" type="Label" parent="." index="8"]
+offset_left = -459.0
+offset_top = -89.0
+offset_right = 385.0
+offset_bottom = 353.0
+rotation = -0.380482
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("5_eslux")
+theme_override_font_sizes/font_size = 512
+text = "BOOM!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = ExtResource("6_juvey")
 
 [connection signal="body_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_entered"]

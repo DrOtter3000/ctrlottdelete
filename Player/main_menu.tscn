@@ -169,7 +169,8 @@ Music:
 -> Kevin MacLeod
 
 SFX:
--> Kenney (kenney.nl)"
+-> Kenney (kenney.nl)
+-> SamsterBirdies"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
