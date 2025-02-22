@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8gd75clko1ny"]
+
+[ext_resource type="Script" path="res://UI/hud.gd" id="1_kbat3"]
+[ext_resource type="Texture2D" uid="uid://bkw6vnnx37isp" path="res://Player/Pencil.png" id="2_s87ke"]
+
+[node name="HUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_kbat3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 2052.0
+offset_bottom = 216.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LifeBar" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Pencil" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil2" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil3" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil4" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil5" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil6" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil7" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil8" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil9" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")
+
+[node name="Pencil10" type="TextureRect" parent="MarginContainer/LifeBar"]
+layout_mode = 2
+texture = ExtResource("2_s87ke")

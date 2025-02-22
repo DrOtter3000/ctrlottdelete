@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=21 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dr2t81l6grit0" path="res://Levels/Pillars/pillars.tscn" id="11_pp81v"]
 [ext_resource type="PackedScene" uid="uid://bgtl76tcow4mf" path="res://Enemies/PaintElemental/paint_elemental.tscn" id="14_ik00b"]
 [ext_resource type="PackedScene" uid="uid://bdui3ajuuimqh" path="res://Levels/Door/door.tscn" id="17_0sa7f"]
+[ext_resource type="PackedScene" uid="uid://b8gd75clko1ny" path="res://UI/hud.tscn" id="18_deuq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -30,6 +31,8 @@ slime_scene = ExtResource("2_k5wiv")
 tank_scene = ExtResource("3_o2u31")
 range_scene = ExtResource("14_ik00b")
 kamikaze_scene = ExtResource("5_x2xrg")
+
+[node name="HUD" parent="." instance=ExtResource("18_deuq7")]
 
 [node name="Ground" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(2400, 1400)

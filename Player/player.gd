@@ -13,6 +13,8 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	position = get_tree().get_first_node_in_group("PlayerStartPosition").global_position
+	update_lifebar()
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -40,6 +42,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage: int) -> void:
 	hitpoints -= damage
+	update_lifebar()
 	check_if_alive()
 
 
@@ -53,3 +56,7 @@ func melee_attack():
 	get_parent().add_child(attack_instance)
 	attack_instance.global_position = attack_spawn_position.global_position
 	attack_instance.damage = melee_damage
+
+
+func update_lifebar():
+	get_tree().call_group("HUD", "update_lifebar", hitpoints)
