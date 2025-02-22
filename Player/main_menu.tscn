@@ -177,7 +177,9 @@ SFX:
 -> iwanPlays
 -> Sheyvan
 -> konstati
--> Geoff-Bremner-Audio"
+-> Geoff-Bremner-Audio
+-> Halleck
+-> qubodup"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2

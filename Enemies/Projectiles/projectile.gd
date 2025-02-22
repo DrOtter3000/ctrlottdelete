@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var speed := 10
 @export var damage := 1
@@ -38,3 +39,10 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_hurt_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.take_damage(damage)
+
+
+func play_attack_sound() -> void:
+	audio_stream_player_2d.stream = load("res://Audio/SFX/Enemies/projectile_splash.wav")
+	audio_stream_player_2d.pitch_scale = randf_range(.7, 1.4)
+	audio_stream_player_2d.volume_db = 0
+	audio_stream_player_2d.play()
