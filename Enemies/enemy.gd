@@ -6,6 +6,7 @@ class_name Enemy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var graphic: Node2D = $Graphic
 
+
 @export var hitpoints := 5.0
 @export var speed := 200
 @export var attack_rate := .5

@@ -11,4 +11,4 @@ bus = &"Music"
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kenso")
-bus = &"UI"
+bus = &"SFX"

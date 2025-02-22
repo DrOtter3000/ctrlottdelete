@@ -173,10 +173,11 @@ SFX:
 -> SamsterBirdies
 -> Sadiquecat
 -> danlucaz
--> EricsSoundschmiede\\
+-> EricsSoundschmiede
 -> iwanPlays
 -> Sheyvan
-"
+-> konstati
+-> Geoff-Bremner-Audio"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2

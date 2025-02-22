@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var attack_spawn_position: Marker2D = $AttackPivot/AttackSpawnPosition
-@onready var transition_rect: ColorRect = $TransitionRect
 
 @export var hitpoints := 10
 @export var speed := 250
