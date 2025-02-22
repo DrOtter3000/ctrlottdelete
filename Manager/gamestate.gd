@@ -3,6 +3,8 @@ extends Node
 var style: String
 var level := 1
 
+var hitpoints := 10
+
 @onready var background_music: AudioStreamPlayer = $BackgroundMusic
 @onready var button_sound: AudioStreamPlayer = $ButtonSound
 

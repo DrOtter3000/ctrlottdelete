@@ -12,24 +12,24 @@ extends CanvasLayer
 @onready var pencil_10: TextureRect = $MarginContainer/LifeBar/Pencil10
 
 
-func update_lifebar(amount) -> void:
-	if amount < 10:
+func update_lifebar() -> void:
+	if Gamestate.hitpoints < 10:
 		pencil_10.texture = load("res://Player/Pencil_broken.png")
-	if amount < 9:
+	if Gamestate.hitpoints < 9:
 		pencil_9.texture = load("res://Player/Pencil_broken.png")
-	if amount < 8:
+	if Gamestate.hitpoints < 8:
 		pencil_8.texture = load("res://Player/Pencil_broken.png")
-	if amount < 7:
+	if Gamestate.hitpoints < 7:
 		pencil_7.texture = load("res://Player/Pencil_broken.png")
-	if amount < 6:
+	if Gamestate.hitpoints < 6:
 		pencil_6.texture = load("res://Player/Pencil_broken.png")
-	if amount < 5:
+	if Gamestate.hitpoints < 5:
 		pencil_5.texture = load("res://Player/Pencil_broken.png")
-	if amount < 4:
+	if Gamestate.hitpoints < 4:
 		pencil_4.texture = load("res://Player/Pencil_broken.png")
-	if amount < 3:
+	if Gamestate.hitpoints < 3:
 		pencil_3.texture = load("res://Player/Pencil_broken.png")
-	if amount < 2:
+	if Gamestate.hitpoints < 2:
 		pencil_2.texture = load("res://Player/Pencil_broken.png")
-	if amount < 1:
+	if Gamestate.hitpoints < 1:
 		pencil.texture = load("res://Player/Pencil_broken.png")

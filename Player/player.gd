@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var attack_spawn_position: Marker2D = $AttackPivot/AttackSpawnPosition
 
-@export var hitpoints := 10
 @export var speed := 250
 @export var melee_damage := 1.0
 @export var melee_attack_scene: PackedScene
@@ -41,13 +40,13 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage(damage: int) -> void:
-	hitpoints -= damage
+	Gamestate.hitpoints -= damage
 	update_lifebar()
 	check_if_alive()
 
 
 func check_if_alive():
-	if hitpoints <= 0:
+	if Gamestate.hitpoints <= 0:
 		print("game over")
 
 
@@ -59,4 +58,4 @@ func melee_attack():
 
 
 func update_lifebar():
-	get_tree().call_group("HUD", "update_lifebar", hitpoints)
+	get_tree().call_group("HUD", "update_lifebar")

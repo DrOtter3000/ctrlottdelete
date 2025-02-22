@@ -64,6 +64,7 @@ func die() -> void:
 
 func _on_attack_timer_timeout() -> void:
 	if alive:
+		player.take_damage(damage)
 		animation_player.play("attack")
 
 
