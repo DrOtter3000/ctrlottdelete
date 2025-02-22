@@ -43,6 +43,9 @@ func take_damage(damage: int) -> void:
 	Gamestate.hitpoints -= damage
 	update_lifebar()
 	check_if_alive()
+	sprite_2d.modulate = Color.RED
+	await get_tree().create_timer(.1).timeout
+	sprite_2d.modulate = Color.WHITE
 
 
 func check_if_alive():
