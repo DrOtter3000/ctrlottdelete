@@ -12,6 +12,13 @@ var luck := 0
 @onready var background_music: AudioStreamPlayer = $BackgroundMusic
 @onready var button_sound: AudioStreamPlayer = $ButtonSound
 
+func reset_stats() -> void:
+	hitpoints = 10
+	damage = 0
+	speed = 0
+	luck = 0
+	level = 1
+
 
 func play_button_sound() -> void:
 	button_sound.pitch_scale = randf_range(.8, 1.2)
