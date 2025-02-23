@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://j6rr43ltwdd"]
+[gd_scene load_steps=10 format=3 uid="uid://j6rr43ltwdd"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
 [ext_resource type="PackedScene" uid="uid://c834ndndienq5" path="res://Player/player_melee_attack.tscn" id="2_fckat"]
 [ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
 [ext_resource type="Texture2D" uid="uid://b7n2fhvhavm3y" path="res://Player/Otter.png" id="3_q4dk8"]
+[ext_resource type="AudioStream" uid="uid://cou7tm6kakhbi" path="res://Audio/SFX/player_hurt.wav" id="5_yw4kq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nse2"]
 radius = 8.0
@@ -106,3 +107,8 @@ libraries = {
 "": SubResource("AnimationLibrary_w22qw")
 }
 autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yw4kq")
+volume_db = -8.0
+bus = &"SFX"

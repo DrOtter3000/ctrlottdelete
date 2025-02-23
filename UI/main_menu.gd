@@ -2,7 +2,8 @@ extends Control
 
 @onready var box_main: VBoxContainer = $BoxMain
 @onready var box_options: VBoxContainer = $BoxOptions
-@onready var box_credits: HBoxContainer = $BoxCredits
+@onready var box_credits: Control = $BoxCredits
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -43,6 +44,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 
 func _on_btn_credits_pressed() -> void:
 	Gamestate.play_button_sound()
+	animation_player.play("play_credits")
 	box_credits.visible = true
 	box_main.visible = false
 

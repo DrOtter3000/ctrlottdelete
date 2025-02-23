@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var attack_spawn_position: Marker2D = $AttackPivot/AttackSpawnPosition
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var speed := 250
 @export var melee_damage := 1.0
@@ -47,6 +48,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage: int) -> void:
 	Gamestate.hitpoints -= damage
+	audio_stream_player.play()
 	update_lifebar()
 	check_if_alive()
 	if alive:

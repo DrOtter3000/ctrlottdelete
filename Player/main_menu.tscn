@@ -1,7 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://dim10f7tbwlr4"]
+[gd_scene load_steps=6 format=3 uid="uid://dim10f7tbwlr4"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_ljne0"]
 [ext_resource type="FontFile" uid="uid://dyey30lwflix3" path="res://Fonts/Marker Felt.ttf" id="2_6fo43"]
+
+[sub_resource type="Animation" id="Animation_en7ne"]
+resource_name = "play_credits"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxCredits/CreditContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.9333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(650, 912), Vector2(650, -1448)]
+}
+
+[sub_resource type="Animation" id="Animation_r45oc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxCredits/CreditContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(656, 912)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcg40"]
+_data = {
+"RESET": SubResource("Animation_r45oc"),
+"play_credits": SubResource("Animation_en7ne")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -118,36 +155,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Back"
 
-[node name="BoxCredits" type="HBoxContainer" parent="."]
+[node name="BoxCredits" type="Control" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -122.0
-offset_right = 122.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 64
-alignment = 1
+anchors_preset = 0
+offset_right = 392.0
 
-[node name="CreditContainer" type="Control" parent="BoxCredits"]
+[node name="CreditContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
+offset_left = 656.0
+offset_top = 912.0
+offset_right = 1156.0
+offset_bottom = 3029.0
+theme_override_constants/separation = 64
 
 [node name="LblCredits" type="Label" parent="BoxCredits/CreditContainer"]
 layout_mode = 2
-offset_left = -204.0
-offset_right = -4.0
-offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("2_6fo43")
+theme_override_font_sizes/font_size = 64
 text = "Credits"
 
 [node name="LblRolesAndNames" type="Label" parent="BoxCredits/CreditContainer"]
 layout_mode = 2
-offset_left = -204.0
-offset_top = 40.0
-offset_right = -4.0
-offset_bottom = 76.0
 text = "Idea:
 -> Wazabey
 -> DrOtter3000
@@ -179,24 +207,42 @@ SFX:
 -> konstati
 -> Geoff-Bremner-Audio
 -> Halleck
--> qubodup"
+-> qubodup
+-> stumpbutt"
 
-[node name="ButtonContainer" type="VBoxContainer" parent="BoxCredits"]
+[node name="LblSpecialThanks" type="Label" parent="BoxCredits/CreditContainer"]
 layout_mode = 2
-alignment = 2
+text = "
 
-[node name="MarginContainer" type="MarginContainer" parent="BoxCredits/ButtonContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 
-[node name="Button" type="Button" parent="BoxCredits/ButtonContainer/MarginContainer"]
+
+
+
+
+
+
+
+Special Thanks:
+
+-> Godot Wild Jam Team
+-> Godot Game Engine
+-> Wazabey Community
+-> DrOtter3000 Community"
+
+[node name="Button" type="Button" parent="BoxCredits"]
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
+offset_left = 1464.0
+offset_top = 928.0
+offset_right = 1664.0
+offset_bottom = 1016.0
 size_flags_horizontal = 4
 text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kcg40")
+}
 
 [connection signal="pressed" from="BoxMain/BtnPlay" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="BoxMain/BtnOptions" to="." method="_on_btn_options_pressed"]
@@ -204,4 +250,4 @@ text = "Back"
 [connection signal="pressed" from="BoxMain/BtnQuit" to="." method="_on_btn_quit_pressed"]
 [connection signal="toggled" from="BoxOptions/HBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="BoxOptions/BtnBack" to="." method="_on_btn_back_pressed"]
-[connection signal="pressed" from="BoxCredits/ButtonContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BoxCredits/Button" to="." method="_on_button_pressed"]
