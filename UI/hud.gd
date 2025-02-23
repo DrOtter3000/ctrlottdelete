@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var lbl_door_open: Label = $CenterContainer/LblDoorOpen
 @onready var pencil: TextureRect = $MarginContainer/LifeBar/Pencil
 @onready var pencil_2: TextureRect = $MarginContainer/LifeBar/Pencil2
 @onready var pencil_3: TextureRect = $MarginContainer/LifeBar/Pencil3
@@ -33,3 +34,7 @@ func update_lifebar() -> void:
 		pencil_2.texture = load("res://Player/Pencil_broken.png")
 	if Gamestate.hitpoints < 1:
 		pencil.texture = load("res://Player/Pencil_broken.png")
+
+
+func show_open_text() -> void:
+	lbl_door_open.visible = true

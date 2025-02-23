@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdui3ajuuimqh"]
+[gd_scene load_steps=6 format=3 uid="uid://bdui3ajuuimqh"]
 
 [ext_resource type="Texture2D" uid="uid://b8sg47hds3rld" path="res://Levels/Door/Door.png" id="1_38jkf"]
 [ext_resource type="Script" path="res://Levels/Door/door.gd" id="1_f8rdu"]
+[ext_resource type="AudioStream" uid="uid://b6ilqsqi6yvse" path="res://Audio/SFX/door_opening.wav" id="3_chc40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxuxc"]
 size = Vector2(300, 176)
@@ -30,5 +31,10 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelArea"]
 position = Vector2(0, -75)
 shape = SubResource("RectangleShape2D_w3pya")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_chc40")
+volume_db = -12.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="NextLevelArea" to="." method="_on_next_level_area_body_entered"]

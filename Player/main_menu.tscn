@@ -162,10 +162,10 @@ offset_right = 392.0
 
 [node name="CreditContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
-offset_left = 656.0
-offset_top = 912.0
-offset_right = 1156.0
-offset_bottom = 3029.0
+offset_left = 650.0
+offset_top = -1448.0
+offset_right = 1150.0
+offset_bottom = 669.0
 theme_override_constants/separation = 64
 
 [node name="LblCredits" type="Label" parent="BoxCredits/CreditContainer"]

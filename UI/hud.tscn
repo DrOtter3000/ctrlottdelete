@@ -59,3 +59,15 @@ texture = ExtResource("2_s87ke")
 [node name="Pencil10" type="TextureRect" parent="MarginContainer/LifeBar"]
 layout_mode = 2
 texture = ExtResource("2_s87ke")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblDoorOpen" type="Label" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+text = "exit is now open"

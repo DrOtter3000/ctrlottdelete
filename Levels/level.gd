@@ -4,6 +4,7 @@ extends Node2D
 @onready var enemy_positions: Node2D = $Enemies/EnemyPositions
 @onready var enemies_on_field: Node2D = $Enemies/EnemiesOnField
 @onready var door: Node2D = $Door
+@onready var count_enemies_timer: Timer = $CountEnemiesTimer
 
 var floor_modulators := [Color.WHITE, Color.BEIGE, Color.BURLYWOOD, Color.DIM_GRAY]
 var available_styles = ["blank", "vines", "cracked"]
@@ -99,3 +100,4 @@ func _on_level_generation_timer_timeout() -> void:
 func _on_count_enemies_timer_timeout() -> void:
 	if enemies_on_field.get_child_count() == 0:
 		door.open()
+		count_enemies_timer.stop()
