@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var melee_damage := 1.0
 @export var melee_attack_scene: PackedScene
 
+var alive := true
+
 
 func _ready() -> void:
 	position = get_tree().get_first_node_in_group("PlayerStartPosition").global_position
@@ -43,14 +45,16 @@ func take_damage(damage: int) -> void:
 	Gamestate.hitpoints -= damage
 	update_lifebar()
 	check_if_alive()
-	sprite_2d.modulate = Color.RED
-	await get_tree().create_timer(.1).timeout
-	sprite_2d.modulate = Color.WHITE
+	if alive:
+		sprite_2d.modulate = Color.RED
+		await get_tree().create_timer(.1).timeout
+		sprite_2d.modulate = Color.WHITE
 
 
 func check_if_alive():
 	if Gamestate.hitpoints <= 0:
-		print("game over")
+		alive = false
+		get_tree().change_scene_to_file("res://UI/game_over_screen.tscn")
 
 
 func melee_attack():

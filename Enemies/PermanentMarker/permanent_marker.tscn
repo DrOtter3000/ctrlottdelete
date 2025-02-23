@@ -265,7 +265,7 @@ turbulence_enabled = true
 script = ExtResource("2_xcyun")
 hitpoints = 15.0
 speed = 75
-attack_rate = 1.0
+attack_rate = 1.2
 damage = 2
 
 [node name="Graphic" parent="." index="0"]

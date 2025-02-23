@@ -19,7 +19,6 @@ var enemies_alive := 0
 func _ready() -> void:
 	select_enemies()
 
-
 func set_enemy(enemy: String) -> void:
 	var enemy_position = enemy_positions.get_children().pick_random()
 	var enemy_instance 
@@ -50,16 +49,34 @@ func select_enemies() -> void:
 	
 	match Gamestate.level:
 		1:
-			enemy_list = {"slime": 0, "tanks": 1, "ranges": 0, "kamikazes": 0}
+			enemy_list = {"slime": 4, "tanks": 0, "ranges": 1, "kamikazes": 1}
 		
 		2:
-			enemy_list = {"slime": 9, "tanks": 0, "ranges": 3, "kamikazes": 0}
+			enemy_list = {"slime": 6, "tanks": 1, "ranges": 0, "kamikazes": 0}
 		
 		3:
-			enemy_list = {"slime": 8, "tanks": 1, "ranges": 3, "kamikazes": 0}
+			enemy_list = {"slime": 8, "tanks": 1, "ranges": 1, "kamikazes": 0}
 		
 		4:
-			enemy_list = {"slime": 7, "tanks": 3, "ranges": 5, "kamikazes": 2}
+			enemy_list = {"slime": 10, "tanks": 2, "ranges": 2, "kamikazes": 0}
+
+		5:
+			enemy_list = {"slime": 10, "tanks": 2, "ranges": 2, "kamikazes": 0}
+		
+		6:
+			enemy_list = {"slime": 10, "tanks": 2, "ranges": 3, "kamikazes": 1}
+		
+		7:
+			enemy_list = {"slime": 10, "tanks": 3, "ranges": 3, "kamikazes": 2}
+		
+		8:
+			enemy_list = {"slime": 10, "tanks": 3, "ranges": 4, "kamikazes": 3}
+		
+		9:
+			enemy_list = {"slime": 10, "tanks": 3, "ranges": 4, "kamikazes": 4}
+		
+		10:
+			enemy_list = {"slime": 10, "tanks": 4, "ranges": 5, "kamikazes": 5}
 	
 	for i in enemy_list["slime"]:
 		set_enemy("slime")

@@ -11,8 +11,8 @@ func open() -> void:
 
 
 func _on_next_level_area_body_entered(body: Node2D) -> void:
-	if Gamestate.level == 4:
+	if Gamestate.level == 10:
 		get_tree().change_scene_to_file("res://UI/winning_screen.tscn")
 	else:
 		Gamestate.level += 1
-		get_tree().change_scene_to_file("res://Levels/level_template.tscn")
+		get_tree().change_scene_to_file("res://UI/upgrade_screen.tscn")

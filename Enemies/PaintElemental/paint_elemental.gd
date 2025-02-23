@@ -23,3 +23,8 @@ func play_attack_sound() -> void:
 	audio_stream_player_2d.pitch_scale = randf_range(.7, 1.4)
 	audio_stream_player_2d.volume_db = 0
 	audio_stream_player_2d.play()
+
+
+func _on_attack_timer_timeout() -> void:
+	if alive:
+		animation_player.play("attack")

@@ -38,15 +38,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func hurt_player() -> void:
-	player.take_damage(damage)
+#func hurt_player() -> void:
+	#player.take_damage(damage)
 
 
 func take_damage(amount: float) -> void:
 	if alive:
 		#TODO: Knockback
 		hitpoints -= amount
-		$Graphic/Sprite2D.modulate = Color.FUCHSIA
+		$Graphic/Sprite2D.modulate = Color.RED
 		check_if_alive()
 		await get_tree().create_timer(.075).timeout 
 		$Graphic/Sprite2D.modulate = Color.WHITE

@@ -4,6 +4,10 @@ var style: String
 var level := 1
 
 var hitpoints := 10
+var damage := 0
+var speed := 0
+var luck := 0
+
 
 @onready var background_music: AudioStreamPlayer = $BackgroundMusic
 @onready var button_sound: AudioStreamPlayer = $ButtonSound
