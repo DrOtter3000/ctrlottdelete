@@ -2,10 +2,13 @@ extends Enemy
 
 @onready var lbl_exposion_text: Label = $LblExposionText
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var explosion_shape: Sprite2D = $ExplosionShape
 
 
 func _ready() -> void:
 	lbl_exposion_text.visible = false
+	explosion_rotation()
+
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -38,3 +41,7 @@ func play_die_sound() -> void:
 func _on_attack_timer_timeout() -> void:
 	if alive:
 		animation_player.play("attack")
+
+
+func explosion_rotation() -> void:
+	explosion_shape.rotation_degrees = randi_range(0, 360)
