@@ -9,13 +9,17 @@ extends CharacterBody2D
 @export var melee_damage := 1.0
 @export var melee_attack_scene: PackedScene
 
+var final_speed: float
+var final_melee_damage: float
+
 var alive := true
 
 
 func _ready() -> void:
 	position = get_tree().get_first_node_in_group("PlayerStartPosition").global_position
 	update_lifebar()
-
+	final_speed = speed + (speed * Gamestate.speed / 10)
+	final_melee_damage = melee_damage + (melee_damage * Gamestate.damage /10)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -30,7 +34,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed
+	velocity = direction * final_speed
 	
 	var mouse_position = get_global_mouse_position()
 	if mouse_position.x > position.x:
@@ -58,10 +62,13 @@ func check_if_alive():
 
 
 func melee_attack():
+	var crit_test = randi_range(1, 10)
+	if crit_test <= Gamestate.luck:
+		final_melee_damage *= 2
 	var attack_instance = melee_attack_scene.instantiate()
 	get_parent().add_child(attack_instance)
 	attack_instance.global_position = attack_spawn_position.global_position
-	attack_instance.damage = melee_damage
+	attack_instance.damage = final_melee_damage 
 
 
 func update_lifebar():

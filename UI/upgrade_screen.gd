@@ -13,7 +13,7 @@ func _on_mouse_entered() -> void:
 
 
 func randomize_cards():
-	var available_upgrades := ["damage", "speed", "text"]
+	var available_upgrades := ["damage", "speed", "luck"]
 	var upgrades_to_choose = available_upgrades.duplicate()
 	for i in range(2):
 		var card = upgrades_to_choose.pick_random()

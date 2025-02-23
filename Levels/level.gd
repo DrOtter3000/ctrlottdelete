@@ -49,7 +49,7 @@ func select_enemies() -> void:
 	
 	match Gamestate.level:
 		1:
-			enemy_list = {"slime": 4, "tanks": 0, "ranges": 1, "kamikazes": 1}
+			enemy_list = {"slime": 4, "tanks": 0, "ranges": 0, "kamikazes": 0}
 		
 		2:
 			enemy_list = {"slime": 6, "tanks": 1, "ranges": 0, "kamikazes": 0}
