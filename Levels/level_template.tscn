@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://vaspg23y30gr"]
+[gd_scene load_steps=22 format=3 uid="uid://vaspg23y30gr"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_14pq3"]
 [ext_resource type="Texture2D" uid="uid://bc8m4hvifvlfy" path="res://Assets/BaseBackground/BaseBackground.png" id="1_hbd4v"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bgtl76tcow4mf" path="res://Enemies/PaintElemental/paint_elemental.tscn" id="14_ik00b"]
 [ext_resource type="PackedScene" uid="uid://bdui3ajuuimqh" path="res://Levels/Door/door.tscn" id="17_0sa7f"]
 [ext_resource type="PackedScene" uid="uid://b8gd75clko1ny" path="res://UI/hud.tscn" id="18_deuq7"]
+[ext_resource type="Texture2D" uid="uid://ckpy58ekpjsw7" path="res://Assets/Walls/door bottom.png" id="19_usigg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpgky"]
 size = Vector2(4799, 47)
@@ -128,12 +129,8 @@ texture = ExtResource("4_p37qk")
 position = Vector2(1650, -150)
 texture = ExtResource("4_p37qk")
 
-[node name="WallBottom6" type="Sprite2D" parent="Walls/BottomWalls"]
-position = Vector2(1950, -150)
-texture = ExtResource("4_p37qk")
-
 [node name="WallBottom7" type="Sprite2D" parent="Walls/BottomWalls"]
-position = Vector2(2250, -150)
+position = Vector2(1950, -150)
 texture = ExtResource("4_p37qk")
 
 [node name="WallBottom8" type="Sprite2D" parent="Walls/BottomWalls"]
@@ -383,6 +380,10 @@ autostart = true
 
 [node name="CountEnemiesTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="DoorBottom" type="Sprite2D" parent="."]
+position = Vector2(2250, 2550)
+texture = ExtResource("19_usigg")
 
 [connection signal="timeout" from="LevelGenerationTimer" to="." method="_on_level_generation_timer_timeout"]
 [connection signal="timeout" from="CountEnemiesTimer" to="." method="_on_count_enemies_timer_timeout"]
