@@ -4,6 +4,14 @@ extends StaticBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+
+func _ready() -> void:
+	if !wall:
+		var torch_visible := false
+		if randi_range(1, 100) < 50:
+			torch_visible = true
+		$Torch.visible = torch_visible
+
 func update_style(style: String) -> void:
 	if wall:
 		match style:

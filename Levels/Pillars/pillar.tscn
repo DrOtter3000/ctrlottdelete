@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0g5lbgwt182q"]
+[gd_scene load_steps=5 format=3 uid="uid://d0g5lbgwt182q"]
 
 [ext_resource type="Script" path="res://Levels/Walls/wall_modular.gd" id="1_77ej6"]
 [ext_resource type="Texture2D" uid="uid://dovjvlg3oaxhl" path="res://Assets/Pillars/pillar base.png" id="2_s3sa3"]
+[ext_resource type="PackedScene" uid="uid://b5yydrofsft5v" path="res://Levels/torch.tscn" id="3_73vc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2g7u"]
 size = Vector2(73, 179)
@@ -20,3 +21,7 @@ texture = ExtResource("2_s3sa3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, -143.5)
 shape = SubResource("RectangleShape2D_w2g7u")
+
+[node name="Torch" parent="." instance=ExtResource("3_73vc4")]
+position = Vector2(-7, 37)
+scale = Vector2(0.8, 0.8)

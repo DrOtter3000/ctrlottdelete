@@ -8,10 +8,6 @@ func _ready() -> void:
 	randomize_cards()
 
 
-func _on_mouse_entered() -> void:
-	print("enter")
-
-
 func randomize_cards():
 	var available_upgrades := ["damage", "speed", "luck"]
 	var upgrades_to_choose = available_upgrades.duplicate()

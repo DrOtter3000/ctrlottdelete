@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage(amount: float) -> void:
-	print(str(name) + ": " + str(amount) + "/" + str(hitpoints))
 	if alive:
 		#TODO: Knockback
 		hitpoints -= amount
