@@ -7,6 +7,7 @@ var hitpoints := 10
 var damage := 0
 var speed := 0
 var luck := 0
+var max_stamina := 10.0
 
 
 @onready var background_music: AudioStreamPlayer = $BackgroundMusic

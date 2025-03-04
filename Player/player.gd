@@ -5,13 +5,17 @@ extends CharacterBody2D
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var attack_spawn_position: Marker2D = $AttackPivot/AttackSpawnPosition
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var stamina_bar: ProgressBar = $StaminaBar
 
 @export var speed := 250
 @export var melee_damage := 1.0
 @export var melee_attack_scene: PackedScene
+@export var stamina_per_attack := 5.0
 
 var final_speed: float
 var final_melee_damage: float
+
+var stamina: float
 
 var alive := true
 
@@ -21,11 +25,15 @@ func _ready() -> void:
 	update_lifebar()
 	final_speed = speed + (speed * Gamestate.speed / 10)
 	final_melee_damage = melee_damage + (melee_damage * Gamestate.damage /10)
+	stamina = Gamestate.max_stamina
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		pause_menu.switch_visibility()
 		get_tree().paused = true
+	
+	stamina_bar.value = stamina / Gamestate.max_stamina
 	
 	if Input.is_action_just_pressed("attack"):
 		melee_attack()
@@ -64,14 +72,24 @@ func check_if_alive():
 
 
 func melee_attack():
-	var crit_test = randi_range(1, 10)
-	if crit_test <= Gamestate.luck:
-		final_melee_damage *= 2
-	var attack_instance = melee_attack_scene.instantiate()
-	get_parent().add_child(attack_instance)
-	attack_instance.global_position = attack_spawn_position.global_position
-	attack_instance.damage = final_melee_damage 
+	if stamina >= stamina_per_attack:
+		var crit_test = randi_range(1, 10)
+		if crit_test <= Gamestate.luck:
+			final_melee_damage *= 2
+		var attack_instance = melee_attack_scene.instantiate()
+		get_parent().add_child(attack_instance)
+		attack_instance.global_position = attack_spawn_position.global_position
+		attack_instance.damage = final_melee_damage 
+		stamina -= stamina_per_attack
 
 
 func update_lifebar():
 	get_tree().call_group("HUD", "update_lifebar")
+
+
+func _on_stamina_timer_timeout() -> void:
+	print(stamina)
+	if stamina <= Gamestate.max_stamina:
+		stamina += .1
+		if stamina > Gamestate.max_stamina:
+			stamina = Gamestate.max_stamina

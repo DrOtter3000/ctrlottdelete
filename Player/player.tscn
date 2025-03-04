@@ -1,10 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://j6rr43ltwdd"]
+[gd_scene load_steps=12 format=3 uid="uid://j6rr43ltwdd"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_fr5kr"]
 [ext_resource type="PackedScene" uid="uid://c834ndndienq5" path="res://Player/player_melee_attack.tscn" id="2_fckat"]
 [ext_resource type="PackedScene" uid="uid://cjvpa5aygihbw" path="res://UI/pause_menu.tscn" id="2_tdi36"]
 [ext_resource type="Texture2D" uid="uid://b7n2fhvhavm3y" path="res://Player/Otter.png" id="3_q4dk8"]
 [ext_resource type="AudioStream" uid="uid://cou7tm6kakhbi" path="res://Audio/SFX/player_hurt.wav" id="5_yw4kq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3nw0"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t0b2"]
+bg_color = Color(0.6, 1, 0.6, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nse2"]
 radius = 8.0
@@ -86,6 +101,17 @@ position = Vector2(7, -64)
 texture = ExtResource("3_q4dk8")
 offset = Vector2(-6, 0)
 
+[node name="StaminaBar" type="ProgressBar" parent="."]
+offset_left = -48.0
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 24.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r3nw0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7t0b2")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
@@ -112,3 +138,9 @@ autoplay = "default"
 stream = ExtResource("5_yw4kq")
 volume_db = -8.0
 bus = &"SFX"
+
+[node name="StaminaTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
