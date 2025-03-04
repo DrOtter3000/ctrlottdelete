@@ -88,7 +88,6 @@ func update_lifebar():
 
 
 func _on_stamina_timer_timeout() -> void:
-	print(stamina)
 	if stamina <= Gamestate.max_stamina:
 		stamina += .1
 		if stamina > Gamestate.max_stamina:

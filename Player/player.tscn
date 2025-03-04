@@ -106,6 +106,7 @@ offset_left = -48.0
 offset_top = 16.0
 offset_right = 48.0
 offset_bottom = 24.0
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_r3nw0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7t0b2")
 max_value = 1.0
@@ -137,7 +138,6 @@ autoplay = "default"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_yw4kq")
 volume_db = -8.0
-bus = &"SFX"
 
 [node name="StaminaTimer" type="Timer" parent="."]
 wait_time = 0.05

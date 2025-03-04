@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dim10f7tbwlr4"]
 
-[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_ljne0"]
-[ext_resource type="FontFile" uid="uid://dyey30lwflix3" path="res://Fonts/Marker Felt.ttf" id="2_6fo43"]
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_ov62v"]
+[ext_resource type="FontFile" uid="uid://dyey30lwflix3" path="res://Fonts/Marker Felt.ttf" id="2_ubrco"]
 
 [sub_resource type="Animation" id="Animation_r45oc"]
 length = 0.001
@@ -47,7 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ljne0")
+script = ExtResource("1_ov62v")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -90,7 +90,7 @@ theme_override_constants/margin_bottom = 32
 
 [node name="LblHeading" type="Label" parent="BoxMain/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_6fo43")
+theme_override_fonts/font = ExtResource("2_ubrco")
 theme_override_font_sizes/font_size = 128
 text = "CtrlOttDelete"
 
@@ -162,15 +162,15 @@ offset_right = 392.0
 
 [node name="CreditContainer" type="VBoxContainer" parent="BoxCredits"]
 layout_mode = 2
-offset_left = 650.0
-offset_top = -1448.0
-offset_right = 1150.0
-offset_bottom = 669.0
+offset_left = 656.0
+offset_top = 912.0
+offset_right = 1156.0
+offset_bottom = 3029.0
 theme_override_constants/separation = 64
 
 [node name="LblCredits" type="Label" parent="BoxCredits/CreditContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_6fo43")
+theme_override_fonts/font = ExtResource("2_ubrco")
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 
